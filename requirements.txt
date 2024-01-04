@@ -1,0 +1,11 @@
+fastapi~=0.108.0
+structlog~=23.3.0
+uvicorn~=0.25.0
+aiohttp~=3.9.1
+python-dotenv==1.0.0
+ewelink@git+ssh://git@github.com/dantimofte/ewelink-api-python.git@1.1.0
+pydantic~=2.5.3
+
+pytest
+setuptools
+wheel

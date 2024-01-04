@@ -1,0 +1,8 @@
+services:
+  smarthouse:
+    image: smarthouse:dogshed
+    pull_policy: missing
+    user: "root"
+    command: python -m uvicorn smarthouse.main:app
+    ports:
+      - "8000:8000"
