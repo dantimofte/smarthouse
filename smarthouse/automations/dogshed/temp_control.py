@@ -45,20 +45,25 @@ class DogshedTempControl:
         log.info("message: {}".format(message))
         sensor_id = message["context"]["deviceMac"]
 
+        # only call state updated if we get a notification from the sensors we are interested in
+        state_changed = False
         if sensor_id == OUTSIDE_SENSOR_CONFIG.sensor_id:
+            state_changed = True
             self.outside_temperature = message["context"]["temperature"]
 
         if sensor_id == DOGSHED_SENSOR_CONFIG.sensor_id:
+            state_changed = True
             self.inside_temperature = message["context"]["temperature"]
 
-        # 2 check if we need to change settings
-        asyncio.create_task(self._on_state_updated())
+        # check if we need to change settings
+        if state_changed:
+            asyncio.create_task(self._on_state_updated())
 
     async def _on_state_updated(self) -> None:
         if self.outside_temperature is None:
             return
 
-        if self.outside_temperature > UPPER_OUTSIDE_TEMPERATURE:
+        if self.outside_temperature > UPPER_OUTSIDE_TEMPERATURE + 0.5:
             log.info(f"Outside temperature: {self.outside_temperature} => stop heating")
             await self.stop_heating()
 

@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 # Runtime dependencies. See requirements.txt for development dependencies.
 DEPENDENCIES = [
     "structlog==23.3.0",
