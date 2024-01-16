@@ -162,6 +162,7 @@ cython_debug/
 
 logs
 manual_deployment.sh
+manual_deploy.md
 .idea
 /.python-version
 notes
