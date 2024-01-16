@@ -29,8 +29,8 @@ UPPER_OUTSIDE_TEMPERATURE = 10  # no heating above this value
 LOWER_OUTSIDE_TEMPERATURE = 0  # high heating bellow this
 INSIDE_TEMPERATURE_LIMIT = 20  # maintain temperature
 FLOOR_TEMPERATURE_RANGES = [
-    (20, 40),
-    (50, 60)
+    (20, 30),
+    (30, 40)
 ]
 
 
